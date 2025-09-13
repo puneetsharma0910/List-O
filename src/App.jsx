@@ -17,7 +17,13 @@ function App() {
   }
 
   const deleteTodo = (id)=>{
-    settodos((prev)=>prev.filter((todo)=>todo.id === id))
+    settodos((prev)=>prev.filter((todo)=>todo.id !== id))
+
+  }
+
+  const toggleComplete = (id)=>{
+
+    settodos((prev)=>prev.map((todo)=>todo.id === id ? has))
 
   }
      
