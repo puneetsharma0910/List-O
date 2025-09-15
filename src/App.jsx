@@ -23,7 +23,7 @@ function App() {
 
   const toggleComplete = (id)=>{
 
-    settodos((prev)=>prev.map((todo)=>todo.id === id ? has))
+    settodos((prev)=>prev.map((todo)=>todo.id === id ?   {...todo, hasCompleted : !hasCompleted}  : todo))
 
   }
      
