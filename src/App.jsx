@@ -30,7 +30,14 @@ function App() {
   }
      
   useEffect(() => {
+  const todos =   JSON.parse(localStorage.getItem("todos"))
+  if(todos && todos.length > 0) settodos(todos)
+
     
+  }, [])
+
+  useEffect(()=>{
+    localStorage.setItem("todos", JSON.stringify(todos))
   }, [todos])
   
 
@@ -45,7 +52,11 @@ function App() {
                     </div>
                     <div className="flex flex-wrap gap-y-3">
                         {/*Loop and Add TodoItem here */}
-                        <TodoItem/>
+                        {todos.map((todo)=>{
+                          return <div className='w-full' key = {todo.id}> 
+                            <TodoItem todo = {todo}/>
+                          </div>
+                        })}
                     </div>
                 </div>
             </div>
